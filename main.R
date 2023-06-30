@@ -19,3 +19,15 @@ training <- data[picked,]
 test <- data[-picked,]
 
 #Q3
+create_cor<-function(data){
+  mat <- matrix(nrow=nrow(data),ncol=ncol(data))
+  for(i in 1:length(ncol(data))){
+    for(j in 1:length(nrow(data))){
+      mat[i,j] <- cor(data[i],data[j])
+    }
+  }
+}
+cor_dat<-create_cor(training)
+
+plot(cor(training$percentage.expenditure,training$infant.deaths))
+cor(training$percentage.expenditure,training$infant.deaths)
